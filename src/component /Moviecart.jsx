@@ -5,9 +5,9 @@ export const Moviecart = () => {
     <div className="w-fit">
       <img
         src="encanto.jpeg"
-        className="h-[234px] w-[157px] rounded-t-lg md:h-[340px] md:w-[230px] "
+        className="h-[234px] w-[158px] rounded-t-lg md:h-[340px] md:w-[230px] "
       ></img>
-      <div className="w-[157px] bg-gray-300 rounded-b-lg  md:w-[230px]">
+      <div className="w-[158px] bg-gray-300 rounded-b-lg  md:w-[230px]">
         <div className="flex p-2">
           <Star className="text-yellow-300 fill-yellow-300 " />
           <p className="w-[36] h-[16] pl-6px">7</p>

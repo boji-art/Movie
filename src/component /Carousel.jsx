@@ -1,21 +1,33 @@
-import { Star} from "lucide-react";
+import { PlayIcon, Star} from "lucide-react";
 
 export const Carousel = () => {
   return (
-    <div>
-      <img src="wicked-mobile.png" />
-      <div className="flex justify-between">
-        <div>
-        <p>Now Playing:</p>
-        <h1>Wicked</h1>
-      </div>
-      <div></div>
-       <div className="flex p-2">
-          <Star className="text-yellow-300 fill-yellow-300 " />
-          <p className="w-[36] h-[16] pl-6px">6.9</p>
-          <p className="text-gray-500">/10</p>
-        </div></div>
+    <div className=" md:flex md:relative ">
+      <img src="wicked.jpg" className="h-[246px] w-[375px] md:h-[600px] md:w-[1440px] "/>
+    <div className="w-[375px] h-[264px] p-2 md:absolute  md:w-[404px] md:h-[264px] md:py-[140px] md:px-[60px]">
+    <div className="flex justify-between p-2 md:flex-col">
+    <div className="md:text-white">
+    <p className="text-sm ">Now Playing:</p>
+    <h3 className="text-2xl font-bold">Wicked</h3>
+    </div>
+    <div className="flex p-2 ">
+    <Star className="text-yellow-300 fill-yellow-300 " />
+    <p className="w-[36] h-[16] pl-6px text-lg md:text-white">6.9</p>
+
+    <p className="text-gray-500 text-md">/10</p>
+  </div>
+  </div>
+  <div className= "md:text-white md:w-[302px] md:[80px] pt-4">
+    <p>Elphaba, a misunderstood young woman because of her green skin, and Glinda, a popular girl, become friends at Shiz University in the Land of Oz. After an encounter with the Wonderful Wizard of Oz, their friendship reaches a crossroads. </p>
+    <div className="flex pt-4">
+    
+   <button className="h-[40px] w-[145px] rounded-md bg-black text-white gap-2 md:text-black md:bg-white"> <PlayIcon className="pt-1 gap-2"/>  Watch Trailer </button>
+    </div>
 
     </div>
-  );
+    </div>
+    
+    </div>
+    )
+
 };
