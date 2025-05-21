@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
 
-export const Moviecart = () => {
+export const Moviecart = ({ movie }) => {
   return (
     <div className="w-fit">
       <img
@@ -15,7 +15,9 @@ export const Moviecart = () => {
           <p className="text-gray-500">/10</p>
         </div>
         <div>
-          <p className=" h-[40px] text-[14px] font-normal pl-2">Encanto</p>
+          <p className=" h-[40px] text-[14px] font-normal pl-2">
+            {movie?.title}
+          </p>
         </div>
       </div>
     </div>

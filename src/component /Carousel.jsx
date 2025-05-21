@@ -11,7 +11,9 @@ import {
 import { MovieCarouselItem } from "./MovieCarouselItem";
 import Autoplay from "embla-carousel-autoplay";
 
-export function MovieCarousel() {
+export function MovieCarousel({ nowPlayingMovie }) {
+  console.log(nowPlayingMovie);
+
   return (
     <Carousel
       className="relative w-full"
@@ -22,10 +24,10 @@ export function MovieCarousel() {
       ]}
     >
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {nowPlayingMovie?.slice(0, 4).map((movie, index) => (
           <CarouselItem key={index}>
-            <div className=" ">
-              <MovieCarouselItem />
+            <div className="p-1">
+              <MovieCarouselItem movie={movie} />
             </div>
           </CarouselItem>
         ))}
