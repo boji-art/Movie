@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
-
 import { Moviecart } from "./Moviecart";
 import { useEffect, useState } from "react";
+import { getTopRatedMovies } from "@/utils/getTopRatedMovies";
 
 export const TopRated = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -9,7 +9,7 @@ export const TopRated = () => {
   useEffect(() => {
     const getTopRated = async () => {
       const response = await getTopRatedMovies();
-      setTopRatedMovies(response, results);
+      setTopRatedMovies(response. results);
     };
     getTopRated();
   }, []);
