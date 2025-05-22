@@ -1,6 +1,3 @@
-import { PlayIcon, Star } from "lucide-react";
-
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -10,9 +7,20 @@ import {
 } from "@/components/ui/carousel";
 import { MovieCarouselItem } from "./MovieCarouselItem";
 import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState } from "react";
+import { getNowPlayingMovies } from "../utils/getNowPlayingMovies";
 
-export function MovieCarousel({ nowPlayingMovie }) {
-  console.log(nowPlayingMovie);
+export function MovieCarousel() {
+  const [nowPlaying, setNowPlayingMovie] = useState([]);
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const response = await getNowPlayingMovies();
+
+      setNowPlayingMovie(response.results);
+    };
+    getMovies();
+  }, []);
 
   return (
     <Carousel
@@ -24,7 +32,7 @@ export function MovieCarousel({ nowPlayingMovie }) {
       ]}
     >
       <CarouselContent>
-        {nowPlayingMovie?.slice(0, 4).map((movie, index) => (
+        {nowPlaying?.slice(0, 4).map((movie, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <MovieCarouselItem movie={movie} />

@@ -1,10 +1,17 @@
 import { Star } from "lucide-react";
+import Link from "next/link";
 
 export const Moviecart = ({ movie }) => {
+  console.log({
+    movie,
+  });
+
+  const imgUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/original/${movie?.poster_path}`;
+
   return (
     <div className="w-fit">
       <img
-        src="encanto.jpeg"
+        src={imgUrl}
         className="h-[234px] w-[158px] rounded-t-lg md:h-[340px] md:w-[230px] "
       ></img>
       <div className="w-[158px] bg-gray-300 rounded-b-lg  md:w-[230px]">

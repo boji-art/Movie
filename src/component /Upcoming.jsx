@@ -1,28 +1,16 @@
 import { ArrowRight } from "lucide-react";
 import { Moviecart } from "./Moviecart";
 import { useEffect, useState } from "react";
+import { getUpcomingMovies } from "@/utils/getUpcomingMovies";
 
 export const Upcoming = () => {
-  const [upComingMovie, setUpcomingMovie] = useState([]);
-  const getUpcoming = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}movie/upcoming?language=en-US&page=1`,
-        {
-          method: "GET",
-          headers: {
-            accept: "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_TOKEN}`,
-          },
-        }
-      );
-      const movies = await response.json();
-      setUpcomingMovie(movies.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [upComingMovies, setUpcomingMovies] = useState([]);
+
   useEffect(() => {
+    const getUpcoming = async () => {
+      const response = await getUpcomingMovies();
+      setUpcomingMovies(response.results);
+    };
     getUpcoming();
   }, []);
 
@@ -35,8 +23,8 @@ export const Upcoming = () => {
         </button>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-        {upComingMovie.map((movie, index) => {
-          return <Moviecart movie={movie} />;
+        {upComingMovies.map((movie) => {
+          return <Moviecart key={movie.id} movie={movie} />;
         })}
       </div>
     </div>
