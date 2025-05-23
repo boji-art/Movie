@@ -22,7 +22,7 @@ export const Popular = () => {
         </button>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-        {popular.map((movie) => {
+        {popular.slice(0,9).map((movie) => {
           return <Moviecart key={movie.id} movie={movie} />;
         })}
       </div>

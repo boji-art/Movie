@@ -6,7 +6,8 @@ export const Moviecart = ({ movie }) => {
     movie,
   });
 
-  const imgUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/original/${movie?.poster_path}`;
+  
+  const imgUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/original/${movie?.backdrop_path}`;
 
   return (
     <div className="w-fit">
@@ -30,3 +31,4 @@ export const Moviecart = ({ movie }) => {
     </div>
   );
 };
+
