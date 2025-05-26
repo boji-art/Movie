@@ -1,6 +1,10 @@
 import { Genre } from "@/component /Detail-movie/Genre";
+import { MOreLikeThis } from "@/component /Detail-movie/MoreLikeThis";
+import { Poster } from "@/component /Detail-movie/Poster";
 import { Top } from "@/component /Detail-movie/Top";
 import { Trailer } from "@/component /Detail-movie/Trailer";
+import { Footer } from "@/component /Footer";
+import { Header } from "@/component /Header";
 import { getDetails } from "@/utils/getMovieId";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -20,10 +24,16 @@ export const DetailsPage = () => {
   }, []);
 
   return (
-    <div>
-      <Top />
+    <div className="container mx-auto overflow-hidden max-w-1280px px-2 py-4">
+      <Header/>
+      <Top movie={detailPage}/>
       <Trailer movie={detailPage} />
-      <Genre />
+      <div className="flex gap-4">
+        {/* <Poster /> */}
+      <Genre movie={detailPage}/>
+      </div>
+      <MoreLikeThis />
+      <Footer/> 
     </div>
   );
 };

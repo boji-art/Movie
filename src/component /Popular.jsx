@@ -14,7 +14,7 @@ export const Popular = () => {
     getPopular();
   }, []);
   return (
-    <div>
+    <div className="px-5">
       <div className="flex justify-between  h-[36px] w-full">
         <h3 className="text-2xl font-semibold pl-3">Popular</h3>
         <button className="flex py-2 px-4 gap-1 text-sm font-medium ">

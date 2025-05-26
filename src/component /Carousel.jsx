@@ -40,8 +40,8 @@ export function MovieCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="md:left-10 " />
-      <CarouselNext className="md:right-10" />
+      <CarouselPrevious className=" md:left-5"/>
+      <CarouselNext className="md:right-5" />
     </Carousel>
   );
 }
