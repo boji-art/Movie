@@ -39,7 +39,7 @@ export const MovieTrailer = ({ movieId }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button >Watch Trailer</Button>
+      <Button >Watch Trailer</Button>
       </DialogTrigger>
       <DialogContent className="max-w-fit! bg-black border-black p-0 overflow-hidden">
         <DialogTitle></DialogTitle>

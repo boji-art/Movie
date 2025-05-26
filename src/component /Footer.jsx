@@ -2,24 +2,26 @@ import { Film, Mail, Phone } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <div className="h-[308px] py-9 px-9 w-full bg-indigo-700 ">
-      <div className="pt-4 text-sm gap-2 flex text-white md:flex ">
-        <Film className="w-[16px] h-[16px]" />
-        <p>MovieZ</p>
+    <div className="h-[308px] py-9 px-9 w-full bg-indigo-700 md:flex md:justify-between md:pt-4">
+      <div className="pt-4 text-sm gap-2 flex text-white md:flex md:flex-col">
+        <div className=" flex md:flex md:gap-2 md:pt-4">
+          <Film className="w-[16px] h-[16px]" />
+          <p className="font-bold">MovieZ</p>
+        </div>
+        <p className="text-white">© 2024 Movie Z. All Rights Reserved.</p>
       </div>
-      <p className="text-white">© 2024 Movie Z. All Rights Reserved.</p>
 
-      <div className="flex items-center gap-2">
-        <div className="py-10 text-sm px-4">
+      <div className="flex items-center md:gap-15 md:pb-10">
+        <div className="py-10 text-sm px-4 md:pt-4">
           <p className="text-white"> Contact Information</p>
-          <div className="flex items-center gap-2 ">
+          <div className="flex items-center md:gap-2 md:pt-4 ">
             <Mail className="text-white w-[16px] h-[16px]" />
             <div className="flex flex-col text-white ">
               <span>Email:</span>
               <span>support@movieZ.com</span>
             </div>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center md:pt-4">
             <Phone className="text-white w-[16px] h-[16px] " />
             <div className="flex flex-col text-white ">
               <span>Phone:</span>
@@ -27,12 +29,14 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center text-white text-sm gap-2 pt-4">
+        <div className="flex flex-col items-center  text-white text-sm gap-2 md:pb-25  md:items-start ">
           <a>Follow us </a>
-          <a>Facebook</a>
-          <a>Instagram</a>
-          <a>Twitter</a>
-          <a>Youtube</a>
+          <div  className="md:flex md:flex-row md:gap-2 ">
+            <a>Facebook </a>
+            <a>Instagram</a>
+            <a>Twitter</a>
+            <a>Youtube</a>
+            </div>
         </div>
       </div>
     </div>

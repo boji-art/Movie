@@ -5,6 +5,7 @@ import { Top } from "@/component /Detail-movie/Top";
 import { Trailer } from "@/component /Detail-movie/Trailer";
 import { Footer } from "@/component /Footer";
 import { Header } from "@/component /Header";
+
 import { MovieTrailer } from "@/component /MovieTrailer";
 import { getDetails } from "@/utils/getMovieId";
 import { useRouter } from "next/router";
@@ -26,7 +27,7 @@ export const DetailsPage = () => {
 
   return (
     <div className="container mx-auto overflow-hidden max-w-1280px px-2 py-4">
-      <Header />
+      <Header/>
       <Top movie={movie} />
       <Trailer movie={movie} />
       <MovieTrailer movieId={movie?.id} />

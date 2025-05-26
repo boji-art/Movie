@@ -7,12 +7,11 @@ import { SearchHeader } from "@/component /Search";
 import { TopRated } from "@/component /TopRated";
 import { Upcoming } from "@/component /Upcoming";
 
-
 export default function Home() {
   return (
     <div className="container mx-auto overflow-hidden ">
       <Header />
-      <SearchHeader className="md:display:hidden" />
+      <SearchHeader className="" />
       <MovieCarousel />
       <MovieTrailer />
       <div className="flex flex-col gap-4 px-2 py-4 max-w-[1280px] ">
