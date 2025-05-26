@@ -1,39 +1,41 @@
 import { Genre } from "@/component /Detail-movie/Genre";
 import { MOreLikeThis } from "@/component /Detail-movie/MoreLikeThis";
-import { Poster } from "@/component /Detail-movie/Poster";
+
 import { Top } from "@/component /Detail-movie/Top";
 import { Trailer } from "@/component /Detail-movie/Trailer";
 import { Footer } from "@/component /Footer";
 import { Header } from "@/component /Header";
+import { MovieTrailer } from "@/component /MovieTrailer";
 import { getDetails } from "@/utils/getMovieId";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export const DetailsPage = () => {
-  const [detailPage, setDetailPage] = useState([]);
+  const [movie, setMovie] = useState({});
   const router = useRouter();
   const movieId = router.query.movieId;
 
   useEffect(() => {
+    if (!movieId) return;
     const getDetailPage = async () => {
       const response = await getDetails(movieId);
-      setDetailPage(response);
-      // console.log(setDetailPage)
+      setMovie(response);
     };
     getDetailPage();
-  }, []);
+  }, [movieId]);
 
   return (
     <div className="container mx-auto overflow-hidden max-w-1280px px-2 py-4">
-      <Header/>
-      <Top movie={detailPage}/>
-      <Trailer movie={detailPage} />
+      <Header />
+      <Top movie={movie} />
+      <Trailer movie={movie} />
+      <MovieTrailer movieId={movie?.id} />
       <div className="flex gap-4">
-        {/* <Poster /> */}
-      <Genre movie={detailPage}/>
+        
+        <Genre movie={movie} />
       </div>
-      <MoreLikeThis />
-      <Footer/> 
+      {/* <MoreLikeThis /> */}
+      <Footer />
     </div>
   );
 };

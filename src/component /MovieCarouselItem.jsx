@@ -1,7 +1,11 @@
 import { PlayIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
+// import { MovieCarousel } from "./Carousel";
+import { MovieTrailer } from "./MovieTrailer";
 
 export const MovieCarouselItem = ({ movie }) => {
+  console.log(movie);
+
   return (
     <div className="w-full ">
       <Link href={`/details/${movie.id}`}>
@@ -27,13 +31,9 @@ export const MovieCarouselItem = ({ movie }) => {
             </div>
             <div className="md:text-white md:w-[302px] md:h-[80px] pt-2 md:text-sm md:">
               <p>{movie.overview}</p>
-              <div className="flex  p-4">
-                <button className="h-[40px] w-[145px] flex  items-center rounded-md bg-black text-white gap-2 md:text-black md:bg-white">
-                  {" "}
-                  <PlayIcon className="gap-2" /> Watch Trailer{" "}
-                </button>
-              </div>
+              <MovieTrailer  movieId={movie.id} />
             </div>
+
           </div>
         </div>
       </Link>
