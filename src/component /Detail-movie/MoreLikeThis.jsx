@@ -3,16 +3,18 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Moviecart } from "../Moviecart";
 
-export const MoreLikeThis = () => {
+export const MoreLikeThis = ({ movieId }) => {
   const [moreLikeThis, setMoreLikeThis] = useState([]);
 
   useEffect(() => {
     const getMoreLike = async () => {
-      const response = await getMoreLikeThis();
-      setMoreLikeThis(response.results);
+      if (!movieId) return;
+      const response = await getMoreLikeThis(movieId);
+
+      setMoreLikeThis(response?.results);
     };
     getMoreLike();
-  }, []);
+  }, [movieId]);
 
   return (
     <div className="px-5">
@@ -23,7 +25,7 @@ export const MoreLikeThis = () => {
         </button>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-        {moreLikeThis.slice(0, 5).map((movie) => {
+        {moreLikeThis?.slice(0,5).map((movie) => {
           return <Moviecart key={movie.id} movie={movie} />;
         })}
       </div>

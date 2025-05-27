@@ -43,7 +43,7 @@ export const MovieTrailer = ({ movieId }) => {
       </DialogTrigger>
       <DialogContent className="max-w-fit! bg-black border-black p-0 overflow-hidden">
         <DialogTitle></DialogTitle>
-        <div className="w-[1500px] h-[1000px]">
+        <div className=" w-[300px] h-[300px] md:w-[1500px] md:h-[1000px]">
           <YouTube
             className="h-full w-full"
             videoId={movieTrailer?.key}

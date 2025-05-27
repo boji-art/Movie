@@ -1,5 +1,5 @@
 import { Genre } from "@/component /Detail-movie/Genre";
-import { MOreLikeThis } from "@/component /Detail-movie/MoreLikeThis";
+import { MoreLikeThis } from "@/component /Detail-movie/MoreLikeThis";
 
 import { Top } from "@/component /Detail-movie/Top";
 import { Trailer } from "@/component /Detail-movie/Trailer";
@@ -16,6 +16,8 @@ export const DetailsPage = () => {
   const router = useRouter();
   const movieId = router.query.movieId;
 
+  console.log("MOVIE ID --------------------", movieId);
+
   useEffect(() => {
     if (!movieId) return;
     const getDetailPage = async () => {
@@ -27,15 +29,14 @@ export const DetailsPage = () => {
 
   return (
     <div className="container mx-auto overflow-hidden max-w-1280px px-2 py-4">
-      <Header/>
+      <Header />
       <Top movie={movie} />
       <Trailer movie={movie} />
       <MovieTrailer movieId={movie?.id} />
       <div className="flex gap-4">
-        
         <Genre movie={movie} />
       </div>
-      {/* <MoreLikeThis /> */}
+      <MoreLikeThis movieId={movie.id} />
       <Footer />
     </div>
   );
