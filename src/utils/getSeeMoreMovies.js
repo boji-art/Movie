@@ -1,3 +1,5 @@
+import { config } from "./config";
+
 export const getSeeMoreMovies = async (categoryName) => {
   try {
     const response = await fetch(

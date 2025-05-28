@@ -6,15 +6,16 @@ export const Moviecart = ({ movie }) => {
     movie,
   });
 
-  
   const imgUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/original/${movie?.backdrop_path}`;
 
   return (
     <div className="w-fit">
-      <img
-        src={imgUrl}
-        className="h-[234px] w-[158px] rounded-t-lg md:h-[340px] md:w-[230px] "
-      ></img>
+      <Link href={`/details/${movie.id}`}>
+        <img
+          src={imgUrl}
+          className="h-[234px] w-[158px] rounded-t-lg md:h-[340px] md:w-[230px] object-cover "
+        ></img>
+      </Link>
       <div className="w-[158px] bg-gray-300 rounded-b-lg  md:w-[230px]">
         <div className="flex p-2">
           <Star className="text-yellow-300 fill-yellow-300 " />
@@ -31,4 +32,3 @@ export const Moviecart = ({ movie }) => {
     </div>
   );
 };
-

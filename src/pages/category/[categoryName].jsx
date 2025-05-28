@@ -8,16 +8,16 @@ import { Moviecart } from "@/component /Moviecart";
 import { Footer } from "@/component /Footer";
 
 const Page = () => {
-  const [upComingMovies, setUpcomingMovies] = useState({});
+  const [upComingMovies, setUpcomingMovies] = useState([]);
   const router = useRouter();
-  const categoryName = router.query.upComingId;
-  
+  const categoryName = router.query.categoryName;
+
   useEffect(() => {
     if (!categoryName) return;
     const getUpComingMovies = async () => {
       const data = await getSeeMoreMovies(categoryName);
 
-      setUpcomingMovies(data);
+      setUpcomingMovies(data?.results);
     };
     getUpComingMovies();
   }, [categoryName]);
@@ -26,8 +26,8 @@ const Page = () => {
     <div>
       <Header />
 
-      <div className="grid  gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 md:max-w-[1800px] mx-auto pt-[52px]">
-        {upComingMovies.map((movie) => (
+      <div  className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
+        {upComingMovies?.map((movie) => (
           <Moviecart movie={movie} />
         ))}
       </div>

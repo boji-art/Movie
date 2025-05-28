@@ -1,13 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Film, MoonIcon, Search, SearchIcon } from "lucide-react";
+import { Genre1 } from "./Genre1";
+import Link from "next/link";
 
 export const Header = () => {
   return (
     <div className="h-[59px] flex items-center justify-between py-2 px-2 max-w-[1280px]">
       <div className="flex gap-2 ">
-        <Film className=" text-indigo-700 h-[20px] w-[20px]" />
+        <Link href={`/`}>
+          <Film className=" text-indigo-700 h-[20px] w-[20px]" />
+        </Link>
 
         <p className="text-indigo-700 text-base font-bold">Movie Z</p>
+
+        <Genre1 />
 
         <div className="hidden md:flex gap-[12px]">
           <Button variant="outline">
@@ -25,8 +31,7 @@ export const Header = () => {
             <Search />
           </Button>
 
-          <Button variant="outline "
-          className="outline">
+          <Button variant="outline " className="outline">
             {" "}
             <MoonIcon />{" "}
           </Button>
