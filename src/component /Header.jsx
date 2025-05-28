@@ -1,4 +1,5 @@
-import { ChevronDown, Film, MoonIcon, SearchIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, Film, MoonIcon, Search, SearchIcon } from "lucide-react";
 
 export const Header = () => {
   return (
@@ -7,18 +8,29 @@ export const Header = () => {
         <Film className=" text-indigo-700 h-[20px] w-[20px]" />
 
         <p className="text-indigo-700 text-base font-bold">Movie Z</p>
-        <div className="flex">
-          <button className="rounded-lg border-gray-400 border flex pr-2 gap-2"><ChevronDown/>Genre</button>
-          
+
+        <div className="hidden md:flex gap-[12px]">
+          <Button variant="outline">
+            <Search />
+            <input
+              type="text"
+              placeholder="Search.."
+              className="outline-none"
+            />
+          </Button>
         </div>
-      </div>
-      <div className="flex gap-2">
-        <button className=" md:invisible rounded-lg border-gray-300 border h-[34px] w-[34px]">
-          <SearchIcon className="ml-2 h-[16px] w-[16px]" />
-        </button>
-        <button className=" rounded-lg border-gray-300 border h-[34px] w-[34px]">
-          <MoonIcon className="ml-2 h-[16px] w-[16px]" />
-        </button>
+
+        <div className="flex gap-3">
+          <Button variant="outline" className="flex gap-3 md:hidden">
+            <Search />
+          </Button>
+
+          <Button variant="outline "
+          className="outline">
+            {" "}
+            <MoonIcon />{" "}
+          </Button>
+        </div>
       </div>
     </div>
   );

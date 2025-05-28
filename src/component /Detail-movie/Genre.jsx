@@ -1,24 +1,22 @@
+import { Button } from "@/components/ui/button";
+
 export const Genre = ({ movie }) => {
   return (
     <div>
       <div className="flex  items-center justify-between  gap-2 ">
-        <img src="wicked.jpg" className="w-[100px] h-[148px] " />
+        
         <div className="flex  flex-col  gap-2">
-          <button className="rounded-full  border-gray-400 border p-1 ">
+          
+          <Button className="rounded-full border-gray-400 border p-1 bg-white text-black" > 
             Fairy Tale
-          </button>
-          <button className="rounded-full border-gray-400 border p-1">
-            Pop Musical
-          </button>
-          <button className="rounded-full border-gray-400 border p-1">
-            Fantasy
-          </button>
-          <button className="rounded-full border-gray-400 border p-1">
-            Musical
-          </button>
-          <button className="rounded-full border-gray-400 border p-1">
-            Romance
-          </button>
+          </Button>
+          <Button className="rounded-full border-gray-400 border p-1"> Pop Musical</Button>
+           <Button className="rounded-full border-gray-400 border p-1">Fantasy</Button>
+          
+          <Button>Musical</Button>
+          <Button>Romance</Button>
+         
+          
           <p>
             Elphaba, a misunderstood young woman because of her green skin, and
             Glinda, a popular girl, become friends at Shiz University in the
