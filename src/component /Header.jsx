@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Film, MoonIcon, Search, SearchIcon } from "lucide-react";
-import { Genre1 } from "./Genre1";
 import Link from "next/link";
+import { Genre1 } from "./Genre/Genre1";
 
 export const Header = () => {
   return (
@@ -12,9 +12,7 @@ export const Header = () => {
         </Link>
 
         <p className="text-indigo-700 text-base font-bold">Movie Z</p>
-
         <Genre1 />
-
         <div className="hidden md:flex gap-[12px]">
           <Button variant="outline">
             <Search />
