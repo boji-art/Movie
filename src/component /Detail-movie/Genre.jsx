@@ -5,16 +5,12 @@ export const Genre = ({ movie }) => {
     <div>
       <div className="flex  items-center justify-between  gap-2 ">
         
-        <div className="flex  flex-col  gap-2">
-          
-          <Button className="rounded-full border-gray-400 border p-1 bg-white text-black" > 
+        <div className="flex gap-2">
+          {/* {movie.genres.map((genre)=>)} */}
+          <Button variant="outline"> 
             Fairy Tale
           </Button>
-          <Button className="rounded-full border-gray-400 border p-1"> Pop Musical</Button>
-           <Button className="rounded-full border-gray-400 border p-1">Fantasy</Button>
           
-          <Button>Musical</Button>
-          <Button>Romance</Button>
           
           <p> {movie.overview}
           </p>
@@ -22,13 +18,15 @@ export const Genre = ({ movie }) => {
       </div>
 
       <div>
-        <div className=" flex font-base h-[28px] gap-15 ">
+        <div className=" flex 
+        flex-row font-base h-[28px] gap-15 ">
           <span className="font-bold ">Director</span>
           <span>Jon M. Chu</span>
         </div>
         <div className=" flex font-base h-[28px] gap-15 ">
           <span className="font-bold ">Writers</span>
           <span>Winnie Holzman · Dana Fox · Gregory Maguire</span>
+          
         </div>
         <div className=" flex font-base h-[28px] gap-15 ">
           <span className="font-bold">Stars</span>

@@ -7,7 +7,7 @@ import { Footer } from "@/component /Footer";
 import { Header } from "@/component /Header";
 
 import { MovieTrailer } from "@/component /MovieTrailer";
-import { getDetails } from "@/utils/getMovieId";
+import { getDetails } from "@/utils/getDetails";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -26,6 +26,7 @@ export const DetailsPage = () => {
     };
     getDetailPage();
   }, [movieId]);
+  console.log(movie)
 
   return (
     <div className="container mx-auto overflow-hidden max-w-1280px px-2 py-4">
@@ -34,7 +35,7 @@ export const DetailsPage = () => {
       <Trailer movie={movie} />
       <MovieTrailer movieId={movie?.id} />
       <div className="flex gap-4">
-        <Genre movie={movie} />
+        <Genre  movie={movie} />
       </div>
       <MoreLikeThis movieId={movie.id} />
       <Footer />
