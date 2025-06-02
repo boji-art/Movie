@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <SearchHeader  />
       <MovieCarousel />
-      <MovieTrailer />
+      {/* <MovieTrailer /> */}
       <div className="flex flex-col gap-4 px-2 py-4 max-w-[1280px] ">
         <Upcoming />
         <Popular />

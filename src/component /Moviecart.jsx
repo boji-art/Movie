@@ -19,7 +19,9 @@ export const Moviecart = ({ movie }) => {
       <div className="w-[158px] bg-gray-300 rounded-b-lg  md:w-[230px]">
         <div className="flex p-2">
           <Star className="text-yellow-300 fill-yellow-300 " />
-          <p className="w-[36] h-[16] pl-6px">7</p>
+          <p className="w-[36] h-[16] pl-6px">
+            {movie?.vote_average.toFixed(1)}
+          </p>
 
           <p className="text-gray-500">/10</p>
         </div>

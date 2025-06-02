@@ -33,7 +33,7 @@ export const DetailsPage = () => {
       <Header />
       <Top movie={movie} />
       <Trailer movie={movie} />
-      <MovieTrailer movieId={movie?.id} />
+      {/* <MovieTrailer movieId={movie?.id} /> */}
       <div className="flex gap-4">
         <Genre  movie={movie} />
       </div>

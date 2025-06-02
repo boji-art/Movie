@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Film, MoonIcon, Search, SearchIcon } from "lucide-react";
+import {
+  ChevronDown,
+  Film,
+  MoonIcon,
+  Search,
+  SearchIcon,
+  Sun,
+} from "lucide-react";
 import Link from "next/link";
 import { Genre1 } from "./Genre/Genre1";
+import { ModeToggle } from "./ModeToggle";
 
 export const Header = () => {
   return (
@@ -29,10 +37,7 @@ export const Header = () => {
             <Search />
           </Button>
 
-          <Button variant="outline " className="outline">
-            {" "}
-            <MoonIcon />{" "}
-          </Button>
+          <ModeToggle />
         </div>
       </div>
     </div>
