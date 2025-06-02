@@ -19,7 +19,7 @@ export const MoreLikeThis = ({ movieId }) => {
   console.log("similiar", movieId);
 
   return (
-    <div className="px-5">
+    <div className="px-1">
       <div className="flex justify-between  h-[36px] w-full">
         <h4 className="text-2xl font-semibold pl-1">More Like This</h4>
         <Link href={`/morelikethis/${movieId}`}>

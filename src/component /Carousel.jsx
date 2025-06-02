@@ -24,7 +24,7 @@ export function MovieCarousel() {
 
   return (
     <Carousel
-      className="relative w-full"
+      className="relative w-full mx-auto max-w-[1280px] over-flown"
       plugins={[
         Autoplay({
           delay: 5000,
@@ -32,7 +32,7 @@ export function MovieCarousel() {
       ]}
     >
       <CarouselContent>
-        {nowPlaying?.slice(0, 4).map((movie, index) => (
+        {nowPlaying?.slice(0, 5).map((movie, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <MovieCarouselItem movie={movie} />

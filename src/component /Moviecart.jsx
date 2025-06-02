@@ -9,14 +9,14 @@ export const Moviecart = ({ movie }) => {
   const imgUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/original/${movie?.backdrop_path}`;
 
   return (
-    <div className="w-fit">
+    <div className="w-fit p-3">
       <Link href={`/details/${movie.id}`}>
         <img
           src={imgUrl}
-          className="h-[234px] w-[158px] rounded-t-lg md:h-[340px] md:w-[230px] object-cover "
+          className="h-[234px] w-[158px] rounded-t-lg md:h-[340px] md:w-[240px] object-cover "
         ></img>
       </Link>
-      <div className="w-[158px] bg-gray-300 rounded-b-lg  md:w-[230px]">
+      <div className="w-[158px] bg-gray-300 rounded-b-lg  md:w-[240px]">
         <div className="flex p-2">
           <Star className="text-yellow-300 fill-yellow-300 " />
           <p className="w-[36] h-[16] pl-6px">

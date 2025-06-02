@@ -23,12 +23,12 @@ export const MovieCarouselItem = ({ movie }) => {
             </div>
             <div className="flex">
               <StarIcon className="text-yellow-300 fill-yellow-300 " />
-              <p className="w-[36] h-[16] pl-6px text-lg md:text-white">6.9</p>
+              <p className="w-[36] h-[16] pl-6px text-lg md:text-white"> {movie?.vote_average.toFixed(1)}</p>
               <p className="text-gray-500 text-md">/10</p>
             </div>
           </div>
-          <div className="md:text-white md:w-[302px] md:h-[80px] pt-2 md:text-sm md:">
-            <p>{movie.overview}</p>
+          <div className="md:text-white md:w-[302px] md:h-[80px] md:text-sm md:">
+            <p className="py-2">{movie.overview}</p>
             <MovieTrailer movieId={movie.id} />
           </div>
         </div>

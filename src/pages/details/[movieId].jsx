@@ -3,6 +3,7 @@ import { MoreLikeThis } from "@/component /Detail-movie/MoreLikeThis";
 
 import { Top } from "@/component /Detail-movie/Top";
 import { Trailer } from "@/component /Detail-movie/Trailer";
+import { Writer } from "@/component /Detail-movie/Writer";
 import { Footer } from "@/component /Footer";
 import { Header } from "@/component /Header";
 
@@ -26,16 +27,17 @@ export const DetailsPage = () => {
     };
     getDetailPage();
   }, [movieId]);
-  console.log(movie)
+  console.log(movie);
 
   return (
-    <div className="container mx-auto overflow-hidden max-w-1280px px-2 py-4">
+    <div className="container mx-auto overflow-hidden max-w-1280px px-2 py-2 ">
       <Header />
       <Top movie={movie} />
-      <Trailer movie={movie} />
-      {/* <MovieTrailer movieId={movie?.id} /> */}
-      <div className="flex gap-4">
-        <Genre  movie={movie} />
+      <div className="  gap-2">
+        <Trailer movie={movie} />
+        <Genre movie={movie} />
+
+        <Writer movie={movie} />
       </div>
       <MoreLikeThis movieId={movie.id} />
       <Footer />
