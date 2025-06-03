@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 export const GenreSelect = ({ genreId }) => {
   const [genres, setGenres] = useState([]);
+  
 
   useEffect(() => {
     const genress = async () => {
@@ -16,7 +17,7 @@ export const GenreSelect = ({ genreId }) => {
   }, [genreId]);
 
   return (
-    <div>
+    <div className="h-[200px] w-[400px] p-2 flex flex-col gap-2">
       {genres.map((genre) => (
         <Link href={`/turul/${genre.id}`}>
           <Button

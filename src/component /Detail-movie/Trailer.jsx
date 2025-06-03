@@ -6,7 +6,7 @@ export const Trailer = ({ movie }) => {
     <div className="flex  flex-col-reverse  md:flex-row md:gap-3 gap-2">
       <img
         src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
-        className="  w-[100px] h-[148px] md:h-[428px]  md:w-[290px] "
+        className=" md:hidden w-[100px] h-[148px] md:h-[428px]  md:w-[290px] "
       />
       <div className="relative">
         <img
