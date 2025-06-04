@@ -7,14 +7,14 @@ import { MovieCartLoading } from "./MovieCartLoading";
 
 export const Upcoming = () => {
   const [upComingMovies, setUpcomingMovies] = useState([]);
-  const [upcomingLoading, setUpcomingLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getUpcomingMovies = async () => {
       const response = await getUpcoming();
       setUpcomingMovies(response.results);
     };
     getUpcomingMovies();
-    setUpcomingLoading(false);
+    setLoading(false);
   }, []);
 
   return (
@@ -28,11 +28,11 @@ export const Upcoming = () => {
         </Link>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-        {upcomingLoading &&
+        {loading &&
           upComingMovies.slice(0, 10).map((movie) => {
             return <MovieCartLoading key={movie.id} movie={movie} />;
           })}
-        {!upcomingLoading &&
+        {!loading &&
           upComingMovies.slice(0, 10).map((movie) => {
             return <Moviecart key={movie.id} movie={movie} />;
           })}
