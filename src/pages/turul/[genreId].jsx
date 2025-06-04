@@ -14,18 +14,17 @@ export const GenrePage = () => {
   const router = useRouter();
   const genreId = router.query.genreId;
   const [movieGenre, setMovieGenre] = useState([]);
- const [page,setPage]=useQueryState("page", parseAsInteger.withDefault(1));
- const totalPages= 10;
-
+  const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+  const totalPages = 10;
 
   useEffect(() => {
+    if (!genreId) return;
     const getSelectedMovies = async () => {
-      const response = await getSelectedMovieGenre(genreId);
+      const response = await getSelectedMovieGenre(genreId, page);
       setMovieGenre(response?.results);
     };
     getSelectedMovies();
-  }, [genreId]);
-  console.log(movieGenre);
+  }, [genreId, page]);
 
   return (
     <div>
@@ -38,7 +37,7 @@ export const GenrePage = () => {
           })}
         </div>
       </div>
-      <PagePagination page={page} setPage={setPage} totalPages= {totalPages} />
+      <PagePagination page={page} setPage={setPage} totalPages={totalPages} />
       <Footer />
     </div>
   );

@@ -9,15 +9,18 @@ import { MovieCarouselItem } from "./MovieCarouselItem";
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useState } from "react";
 import { getNowPlayingMovies } from "../utils/getNowPlayingMovies";
+import { HomePageLoading } from "./HomePageLoading";
 
 export function MovieCarousel() {
   const [nowPlaying, setNowPlayingMovie] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     const getMovies = async () => {
       const response = await getNowPlayingMovies();
 
       setNowPlayingMovie(response.results);
+      setLoading(false);
     };
     getMovies();
   }, []);
@@ -32,6 +35,7 @@ export function MovieCarousel() {
       ]}
     >
       <CarouselContent>
+        {loading && <HomePageLoading />}
         {nowPlaying?.slice(0, 5).map((movie, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
@@ -40,7 +44,7 @@ export function MovieCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className=" md:left-5"/>
+      <CarouselPrevious className=" md:left-5" />
       <CarouselNext className="md:right-5" />
     </Carousel>
   );

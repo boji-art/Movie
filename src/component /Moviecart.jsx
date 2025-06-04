@@ -2,9 +2,7 @@ import { Star } from "lucide-react";
 import Link from "next/link";
 
 export const Moviecart = ({ movie }) => {
-  console.log({
-    movie,
-  });
+  
 
   const imgUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/original/${movie?.backdrop_path}`;
 
