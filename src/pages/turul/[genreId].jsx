@@ -3,8 +3,8 @@ import { Footer } from "@/component /Footer";
 import { GenreSelect } from "@/component /Genre/GenreSelect";
 import { Header } from "@/component /Header";
 import { Moviecart } from "@/component /Moviecart";
+import { MovieCartLoading } from "@/component /MovieCartLoading";
 
-import { getGenre } from "@/utils/getGenre";
 import { getSelectedMovieGenre } from "@/utils/getSelectedMovieGenre";
 import { useRouter } from "next/router";
 import { parseAsInteger, useQueryState } from "nuqs";
@@ -14,8 +14,10 @@ export const GenrePage = () => {
   const router = useRouter();
   const genreId = router.query.genreId;
   const [movieGenre, setMovieGenre] = useState([]);
+
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
   const totalPages = 10;
+     const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!genreId) return;
@@ -24,6 +26,7 @@ export const GenrePage = () => {
       setMovieGenre(response?.results);
     };
     getSelectedMovies();
+    setLoading(false);
   }, [genreId, page]);
 
   return (
@@ -32,7 +35,10 @@ export const GenrePage = () => {
       <div className="flex ">
         <GenreSelect genreId={genreId} />
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-          {movieGenre?.map((movie) => {
+          {loading && movieGenre?.map((movie) => {
+            return <MovieCartLoading movie={movie} key={movie.id} />;
+          })}
+          {!loading && movieGenre?.map((movie) => {
             return <Moviecart movie={movie} key={movie.id} />;
           })}
         </div>

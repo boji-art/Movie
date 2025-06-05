@@ -3,16 +3,18 @@ import { Moviecart } from "./Moviecart";
 import { useEffect, useState } from "react";
 import { getPopularMovies } from "@/utils/getPopularMovies";
 import Link from "next/link";
+import { MovieCartLoading } from "./MovieCartLoading";
 
 export const Popular = () => {
   const [popular, setPopular] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getPopular = async () => {
       const response = await getPopularMovies();
       setPopular(response.results);
     };
     getPopular();
+    setLoading(false);
   }, []);
   return (
     <div className="px-5">
@@ -25,9 +27,14 @@ export const Popular = () => {
         </Link>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-        {popular.slice(0, 10).map((movie) => {
-          return <Moviecart key={movie.id} movie={movie} />;
-        })}
+        {loading &&
+          popular.slice(0, 10).map((movie) => {
+            return <MovieCartLoading key={movie.id} movie={movie} />;
+          })}
+        {!loading &&
+          popular.slice(0, 10).map((movie) => {
+            return <Moviecart key={movie.id} movie={movie} />;
+          })}
       </div>
     </div>
   );

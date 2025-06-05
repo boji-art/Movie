@@ -1,15 +1,9 @@
 import { Button } from "@/components/ui/button";
-import {
-  ChevronDown,
-  Film,
-  MoonIcon,
-  Search,
-  SearchIcon,
-  Sun,
-} from "lucide-react";
+import { Film, Search } from "lucide-react";
 import Link from "next/link";
 import { Genre1 } from "./Genre/Genre1";
 import { ModeToggle } from "./ModeToggle";
+import { HeaderSearch } from "./Search";
 
 export const Header = () => {
   return (
@@ -20,16 +14,9 @@ export const Header = () => {
         </Link>
 
         <p className="text-indigo-700 text-base font-bold">Movie Z</p>
-        <Genre1/>
+        <Genre1 />
         <div className="hidden md:flex gap-[12px]">
-          <Button variant="outline">
-            <Search />
-            <input
-              type="text"
-              placeholder="Search.."
-              className="outline-none"
-            />
-          </Button>
+          <HeaderSearch />
         </div>
 
         <div className="flex gap-3   ">

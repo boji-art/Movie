@@ -3,9 +3,11 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Moviecart } from "../Moviecart";
 import Link from "next/link";
+import { MovieCartLoading } from "../MovieCartLoading";
 
 export const MoreLikeThis = ({ movieId }) => {
   const [moreLikeThis, setMoreLikeThis] = useState([]);
+   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getMoreLike = async () => {
@@ -15,6 +17,7 @@ export const MoreLikeThis = ({ movieId }) => {
       setMoreLikeThis(response?.results);
     };
     getMoreLike();
+    setLoading(false);
   }, [movieId]);
   console.log("similiar", movieId);
 
@@ -29,7 +32,10 @@ export const MoreLikeThis = ({ movieId }) => {
         </Link>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-        {moreLikeThis?.slice(0, 5).map((movie) => {
+        {loading && moreLikeThis?.slice(0, 5).map((movie) => {
+          return <MovieCartLoading key={movie.id} movie={movie} />;
+        })}
+        {!loading && moreLikeThis?.slice(0, 5).map((movie) => {
           return <Moviecart key={movie.id} movie={movie} />;
         })}
       </div>

@@ -3,16 +3,18 @@ import { Moviecart } from "./Moviecart";
 import { useEffect, useState } from "react";
 import { getTopRatedMovies } from "@/utils/getTopRatedMovies";
 import Link from "next/link";
+import { MovieCartLoading } from "./MovieCartLoading";
 
 export const TopRated = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getTopRated = async () => {
       const response = await getTopRatedMovies();
       setTopRatedMovies(response.results);
     };
     getTopRated();
+    setLoading(false);
   }, []);
   return (
     <div className="px-5">
@@ -27,9 +29,14 @@ export const TopRated = () => {
         </Link>
       </div>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
-        {topRatedMovies.slice(0, 10).map((movie) => {
-          return <Moviecart key={movie.id} movie={movie} />;
-        })}
+        {loading &&
+          topRatedMovies.slice(0, 10).map((movie) => {
+            return <MovieCartLoading key={movie.id} movie={movie} />;
+          })}
+        {!loading &&
+          topRatedMovies.slice(0, 10).map((movie) => {
+            return <Moviecart key={movie.id} movie={movie} />;
+          })}
       </div>
     </div>
   );
