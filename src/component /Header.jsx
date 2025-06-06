@@ -15,14 +15,16 @@ export const Header = () => {
 
         <p className="text-indigo-700 text-base font-bold">Movie Z</p>
         <Genre1 />
-        <div className="hidden md:flex gap-[12px]">
+        <div className=" md:flex gap-[12px]">
+
           <HeaderSearch />
         </div>
 
         <div className="flex gap-3   ">
-          <Button variant="outline" className="flex gap-3 md:hidden">
+          {/* <Button variant="outline" className="flex gap-3 md:hidden">
+         
             <Search />
-          </Button>
+          </Button> */}
 
           <ModeToggle />
         </div>

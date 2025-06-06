@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MovieTrailer } from "./MovieTrailer";
 
 export const MovieCarouselItem = ({ movie }) => {
-  console.log(movie);
+  // console.log(movie);
 
   return (
     <div className="w-full ">

@@ -23,7 +23,6 @@ export const DetailsPage = () => {
     };
     getDetailPage();
   }, [movieId]);
-  // console.log(movie);
 
   const [writerId, setWriterId] = useState({});
 

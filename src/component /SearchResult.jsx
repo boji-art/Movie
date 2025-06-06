@@ -9,6 +9,9 @@ export const SearchResult = ({ movie, setSearchValue }) => {
           .map((movie) => (
             <SearchResultCart movie={movie} setSearchValue={setSearchValue} />
           ))}
+           <div>
+        <p>See all results for </p>
+      </div>
     </div>
   );
 };

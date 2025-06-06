@@ -3,8 +3,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { getGenre } from "@/utils/getGenre";
@@ -29,7 +27,7 @@ export const Genre1 = ({ genreId }) => {
       <DropdownMenu>
         <DropdownMenuTrigger>
           <Button variant="outline">
-            <ChevronDown />
+            <ChevronDown  className=""/>
             Genres
           </Button>
         </DropdownMenuTrigger>
